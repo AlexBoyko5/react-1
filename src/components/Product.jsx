@@ -54,17 +54,75 @@
 
 // src/components/Product.jsx
 
-export const Product = () => {
-	const price = 999;
-	const imgUrl =
-		'<https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640>';
+// export const Product = () => {
+// 	const price = 999;
+// 	const imgUrl =
+// 		'<https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640>';
 
+// 	return (
+// 		<>
+// 			<h2>Tacos</h2>
+// 			<img src={imgUrl} alt="Tacos With Lime" width="640" />
+// 			<p>Price: {price} credits</p>
+// 		</>
+// 	);
+// };
+// export default Product;
+//!==========//!==========//!==========//!==========//!==========//!==========//!==========//!==========//!==========
+// src/components/Product.jsx
+
+// export const Product = (props) => {
+// 	return (
+// 		<div>
+// 			<h2>{props.name}</h2>
+// 			<img
+// 				src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
+// 				alt="Tacos With Lime"
+// 				width="480"
+// 			/>
+// 			<p>Price: 999 credits</p>{' '}
+// 		</div>
+// 	);
+// };
+//!======= В самому компоненті Product використаємо отримані пропси в розмітці.
+// src/components/Product.jsx
+
+// export const Product = (props) => {
+// 	return (
+// 		<div>
+// 			<h2>{props.name}</h2>
+// 			<img src={props.imgUrl} alt={props.name} width="480" />
+// 			<p>Price: {props.price} credits</p>
+// 		</div>
+// 	);
+// };
+
+//!======= Оскільки props – це об'єкт, ми можемо деструктуризувати його у підписі функції.
+//! Це робить код чистішим і читабельнішим.
+// src/components/Product.jsx
+
+export const Product = ({ name, imgUrl, price }) => {
 	return (
-		<>
-			<h2>Tacos</h2>
-			<img src={imgUrl} alt="Tacos With Lime" width="640" />
+		<div>
+			<h2>{name}</h2>
+			<img src={imgUrl} alt={name} width="480" />
 			<p>Price: {price} credits</p>
-		</>
+		</div>
 	);
 };
-export default Product;
+
+//!======= Для того щоб вказати значення властивостей за замовчуванням,
+//!======= використовується синтаксис значень за замовчуванням під час деструктуризації пропсів.
+// src/components/Product.jsx
+
+// const Product = ({
+// 	name,
+// 	imgUrl = 'https://dummyimage.com/640x480/2a2a2a/ffffff&text=Product+image+placeholder',
+// 	price,
+// }) => (
+// 	<div>
+// 		<h2>{name}</h2>
+// 		<img src={imgUrl} alt={name} width="480" />
+// 		<p>Price: {price} credits</p>
+// 	</div>
+// );
