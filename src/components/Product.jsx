@@ -70,7 +70,6 @@
 // export default Product;
 //!==========//!==========//!==========//!==========//!==========//!==========//!==========//!==========//!==========
 // src/components/Product.jsx
-
 const Product = (props) => {
 	return (
 		<div>
