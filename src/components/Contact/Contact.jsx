@@ -1,6 +1,10 @@
-const Contact = ({ contact }) => (
+const Contact = ({ contact, deleteContact }) => (
+	// добавл deleteContact  в список пропсов в компоненте Contact.
 	<div>
 		{contact.name}: {contact.number}
+		<button onClick={() => deleteContact(contact.id)}>Delete</button>
+		{/* передаем функцию deleteContact как свойство (prop) в компонент Contact
+		из компонента ContactList */}
 	</div>
 );
 export default Contact;

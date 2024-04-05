@@ -1,9 +1,16 @@
 import Contact from '../Contact/Contact';
-const ContactList = ({ contacts }) => (
+const ContactList = ({ contacts, deleteContact }) => (
+	// добавл deleteContact в список пропсов в компоненте ContactList.
 	<div>
 		{contacts.map((contact) => (
-			<Contact key={contact.id} contact={contact} />
+			<Contact
+				key={contact.id}
+				contact={contact}
+				deleteContact={deleteContact}
+			/>
 		))}
+		{/* передаем функцию deleteContact как свойство (prop) в компонент Contact
+		из компонента Арр */}
 	</div>
 );
 export default ContactList;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ContactList from '../ContactList/ContactList';
-// import ContactForm from '../ContactForm/ContactForm';
+import ContactForm from '../ContactForm/ContactForm';
 import SearchBox from '../SearchBox/SearchBox';
 
 import './App3.css';
@@ -35,13 +35,22 @@ function App() {
 	// SearchBox получает текущее значение фильтра (filter) и функцию для его обновления (setFilter) в качестве пропсов.
 	// ContactList получает отфильтрованный список контактов (filteredContacts) в качестве пропса.
 
+	const deleteContact = (id) => {
+		setContacts(contacts.filter((contact) => contact.id !== id));
+	}; //Добавьте функцию для удаления контакта в компоненте App.
+	// Эта функция будет принимать идентификатор контакта и удалять контакт с этим идентификатором из состояния contacts.
+
 	return (
 		<div>
 			<h1>Phonebook</h1>
-			{/* <ContactForm contacts={contacts} setContacts={setContacts} /> */}
+			<ContactForm contacts={contacts} setContacts={setContacts} />
 			<SearchBox filter={filter} setFilter={setFilter} />
-			<ContactList contacts={filteredContacts} />{' '}
-			{/* замена contacts={contacts} на  contacts={filteredContacts} чтобы отобразить только отфильтрованные контакты */}
+			<ContactList
+				contacts={filteredContacts}
+				deleteContact={deleteContact}
+			/>{' '}
+			{/* замена contacts={contacts} на  contacts={filteredContacts} чтобы отобразить только отфильтрованные контакты
+			передача функции deleteContact в компонент ContactList как свойство. */}
 		</div>
 	);
 }
